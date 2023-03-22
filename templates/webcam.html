@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Webcam Stream</title>
+    <link rel="stylesheet" href="{% static 'css/checkin.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+    <h1 style="margin-left:33rem">Face Recognition System</h1>
+    <div id="container">
+        <video id="videoElement" autoplay="true"></video>
+        <button id="captureButton" style="margin-left: 14rem; margin-top:13px">Capture</button>
+    </div>
+    <a href="logout">Logout</a>
+    <a href="/">Return to homepage</a>
+    {% comment %} <script src="C:\Users\ACER\Desktop\js-query\node_modules\js-cookie\dist\js.cookie.mjs"></script> {% endcomment %}
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        
+        let video = document.querySelector("#videoElement");
+        let captureButton = document.querySelector("#captureButton");
+
+        if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({
+            video: true
+        }).then(function(stream) {
+            video.srcObject = stream;
+        }).catch(function(error) {
+            console.log("Something went wrong");
+        });
+
+        captureButton.addEventListener("click", function() {
+            const canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL("image/jpeg");
+            // console.log(dataUrl)
+            const csrfToken = getCookie('csrftoken');
+            fetch('{% url "process_frame" %}', {
+                method: "POST",
+                body: JSON.stringify({
+                    frame: dataUrl
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                }
+            }).then(function(response) {
+                console.log("Frame sent to server");
+            }).catch(function(error) {
+                console.log("Something went wrong");
+            });
+            console.log(dataUrl)
+        });
+        } else {
+            console.log("getUserMedia not supported");
+        }
+    </script> 
+    <!-- src="{% static 'assets/js/main.js' %}" -->
+</body>
+</html>

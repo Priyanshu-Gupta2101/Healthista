@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    {% if context.Match == True %}
+        <h1> Known Face Detected <br> Matched Index: {{ context.index }}</h1>
+    {% else %}
+        <h1> Something went wrong</h1>
+    {% endif %}
+
+    {% comment %} {% for my_model in my_models %}
+        <img src="{{ my_model.image.url }}" alt="My Image">
+    {% endfor %} {% endcomment %}
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'img/favicon.32x32.png' %}">
+  </head>
+  <body>
+    <div class="body">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <header class="header">
+      <a href="#">
+        {% load static %}
+        <img class="logo" alt="Healthista Logo" src="{% static 'imgs/logo.png' %}" />
+      </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="about">About Us</a></li>
+          <li><a class="main-nav-link" href="register">Register</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="main-nav-link nav-cta" href="logout">Check out</a></li>
+          <li><a class="main-nav-link nav-cta" href="token">View Token</a></li>
+          {% else %}
+          <li><a class="main-nav-link nav-cta" href="login">Check in</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+    </nav>
+    <div class="name">
+      <p>Healthista</p>
+    </div>
+    <div class="info">
+      <p>Your one-stop destination for all your medical registration needs.<br>
+        Tailored to make your registration and filing processes easy<br> and hassle-free.
+      </p>
+    </div>
+    <div class="circle"></div>
+    <div class="circle1"></div>
+  <div class="circle2"></div>
+  <div class="circle3"></div>
+  <div class="doc1">
+    {% load static %}
+    <img class="doc" src="{% static 'img/doctor.png' %}"/>
+    {% load static %}
+    <img class="doc2" src="{% static 'img/doc1.png' %}"/>
+    {% load static %}
+    <img class="doc3" src="{% static 'img/doc2.png' %}"/>
+  </div>
+  <div class="sign">
+  <a href="register" class="main-nav-link nav-cta1"
+              >Start Registering</a>
+          </div>
+          <div class="learn">
+            <a href="#learn" class="main-nav-link nav-cta2">Learn more &darr;</a>
+            </div>
+            <div class="pat">
+            <div class="delivered-meals">
+              <div class="delivered-imgs">
+                <img src="{% static 'img/customers/customer-1.jpg' %}" alt="Customer photo" />
+                <img src="{% static 'img/customers/customer-2.jpg' %}" alt="Customer photo" />
+                <img src="{% static 'img/customers/customer-3.jpg' %}" alt="Customer photo" />
+                <img src="{% static 'img/customers/customer-4.jpg' %}" alt="Customer photo" />
+                <img src="{% static 'img/customers/customer-5.jpg' %}" alt="Customer photo" />
+                <img src="{% static 'img/customers/customer-6.jpg' %}" alt="Customer photo" />
+              </div>
+              <p class="delivered-text">
+                <span>1000+</span> patients registered last year!
+              </p>
+            </div>
+            </div>
+          </div>
+          <section class="section-featured">
+            <div class="container">
+              <h2 class="heading-featured-in">As featured in</h2>
+              <div class="logos">
+                <img src="{% static 'img/logos/techcrunch.png' %}" alt="Techcrunch logo" />
+                <img
+                  src="{% static 'img/logos/business-insider.png' %}"
+                  alt="Business Insider logo"
+                />
+                <img src="{% static 'img/logos/toi.png' %}" alt="TOI logo" />
+                <img src="{% static 'img/logos/forbes.png' %}" alt="Forbes logo" />
+                <img src="{% static 'img/logos/indian.png' %}" alt="indian express logo" />
+              </div>
+            </div>
+          </section>
+          <a id="signup">
+            <section class="section-cta">
+             <div class="container">
+               <div class="cta">
+                 <div class="cta-text-box">
+                   <h2 class="heading-secondary">Get your medical registration done online!</h2>
+                   <p class="cta-text">
+                     Eliminate the hastle for in-person registration at the hospital and register yourself at the comfort of your homes and also for free!
+                   </p>
+                 </div>
+                 <div
+                   class="cta-img-box"
+                   role="img"
+                   aria-label="doctor and patient"
+                 ></div>
+               </div>
+             </div>
+           </section>
+         </a>
+  </body> 
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'img/favicon-32x32.png' %}" />
+    <title>Healthista</title>
+  </head>
+  <body>
+    <div class="body">
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"
+      ></script>
+      <header class="header">
+        <a href="#">
+          <img class="logo" alt="Healthista Logo" src="{% static 'imgs/logo.png' %}" />
+        </a>
+
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li><a class="main-nav-link" href="register">Checkin</a></li>
+            <li><a class="main-nav-link nav-cta" href="login">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="name1">
+      <p>About Us</p>
+    </div>
+    <br />
+    <hr align="center" />
+    <br />
+    <div class="about">
+      <p>
+        We, at Healthista as a team strive everyday to make the registration
+        procedure of patients and the users of our website easy and faster. We
+        dedicate ourselves to make the in-person tedious registration procedures
+        at hospital online, quicker & user-friendly for the common people. Our
+        website is very user-friendly and every person can register themselves
+        for free and without any efforts. With our facial-recognition
+        technology, hospital can access your details faster. The patient details
+        are 100% secure in our database so patients don't have to worry about
+        breaching of data.
+      </p>
+    </div>
+    <br />
+    <hr />
+    {% load static %}
+    {% comment %} <div class="name2">
+      <p>Contact Us</p>
+    </div>
+    <img class="what" src="{% static 'img/whatsapp.png' %}" />
+    <div class="what1">
+      <p>+91 1234567890</p>
+    </div>
+    <img class="gmail" src="{% static 'img/gmail.png' %}" />
+    <div class="mail1">
+      <p>healthista@gmail.com</p> {% endcomment %}
+    </div>
+  </body>
+</html>
